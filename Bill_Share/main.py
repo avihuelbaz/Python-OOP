@@ -16,9 +16,9 @@ class flatmate:
         self.days_in_house=days_in_house
 
 
-    def pays(self,bill):
-       return bill.amount/2
-
+    def pays(self,bill,flatmate2):
+        wehigt= self.days_in_house/(self.days_in_house+flatmate2.days_in_house)
+        return bill.amount*wehigt
 class PdfReport:
     """
     Create PDF file that describe the bill
@@ -33,4 +33,5 @@ bill = Bill(120, "March 2021")
 john = flatmate("John", 20)
 marry = flatmate("Marry", 10)
 
-print (john.pays(bill=bill))
+print (john.pays(bill,marry))
+print (marry.pays(bill,john))
